@@ -4,7 +4,7 @@
 release readiness (Gate 4).** Playwright + TypeScript.
 
 Owner: `@spec-kit-relm/qa` · Spec Kit project, kind **qa** (presets `relm-org` + `relm-qa`,
-extensions `git`, `github`, `relm`) · Consumer of **inventory-api 1.1.0** and **orders-api 1.3.0**
+extensions `git`, `github`, `relm`) · Consumer of **inventory-api 1.1.1** and **orders-api 1.3.1**
 (see [`contracts.lock.json`](contracts.lock.json))
 
 ## Run it
@@ -13,11 +13,11 @@ extensions `git`, `github`, `relm`) · Consumer of **inventory-api 1.1.0** and *
 npm ci && npx playwright install chromium
 npx playwright test --list                                   # what exists
 BASE_URL=https://staging.storefront.relm.example npm test     # run against an environment
-npm run coverage:scenarios -- --feature RELM-1                # which scenarios have tests (any repo)
+npm run coverage:scenarios -- --feature RELM-2                # which scenarios have tests (any repo)
 ```
 
 `coverage:scenarios` reads the *Scenario IDs* tables in `../product-specs/specs/*/spec.md` and
-searches test titles in this repo and in sibling repos. Today it reports **0/9 for RELM-1** —
+searches test titles in this repo and in sibling repos. Today it reports **0/9 for RELM-2** —
 correct, because implementation has not started; `--gate` fails until every P1 scenario is covered.
 
 ## How QA works with Spec Kit — in order
@@ -38,7 +38,7 @@ correct, because implementation has not started; `--gate` fails until every P1 s
 
 | Feature | Directory | State |
 |---------|-----------|-------|
-| RELM-1 Stock reservation at checkout | [`specs/001-stock-reservation/`](specs/001-stock-reservation/) | Approved · versions pinned · [tasks](specs/001-stock-reservation/tasks.md) ready — **next: `/speckit.implement Phase 1`** |
+| RELM-2 Stock reservation at checkout | [`specs/002-stock-reservation/`](specs/002-stock-reservation/) | Approved · versions pinned · [tasks](specs/002-stock-reservation/tasks.md) ready — **next: `/speckit.implement Phase 1`** |
 
 ## Gates on every PR
 

@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       gate-feature:
-        description: "Feature ID to gate on (e.g. RELM-1) — fails if a P1 scenario has no test"
+        description: "Feature ID to gate on (e.g. RELM-2) — fails if a P1 scenario has no test"
         required: false
 
 permissions:

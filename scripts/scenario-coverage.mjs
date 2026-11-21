@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Scenario coverage (QA-2): which product scenario IDs have at least one automated test?
 //
-//   node scripts/scenario-coverage.mjs [--specs ../product-specs] [--tests <dir> ...] [--feature RELM-1] [--gate]
+//   node scripts/scenario-coverage.mjs [--specs ../product-specs] [--tests <dir> ...] [--feature RELM-2] [--gate]
 //
 // Scenario IDs come from the "Scenario IDs" table of every product spec
 // (product-specs/specs/NNN-*/spec.md). Tests are found by scanning test titles in the given

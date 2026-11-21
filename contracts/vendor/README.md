@@ -6,5 +6,5 @@ procedure as the other consumers.
 
 | File | Provider | Version | Source tag | Vendored on |
 |------|----------|---------|------------|-------------|
-| `inventory-api.yaml` | spec-kit-relm/inventory-service | 1.1.0 | `inventory-api-v1.1.0` | 2026-11-20 |
-| `orders-api.yaml` | spec-kit-relm/orders-service | 1.3.0 | `orders-api-v1.3.0` | 2026-11-20 |
+| `inventory-api.yaml` | spec-kit-relm/inventory-service | 1.1.1 | `inventory-api-v1.1.1` | 2026-11-22 |
+| `orders-api.yaml` | spec-kit-relm/orders-service | 1.3.1 | `orders-api-v1.3.1` | 2026-11-22 |

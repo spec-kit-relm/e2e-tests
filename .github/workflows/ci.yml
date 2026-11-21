@@ -1,0 +1,43 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 2 * * *"   # nightly scenario coverage report
+  workflow_dispatch:
+    inputs:
+      gate-feature:
+        description: "Feature ID to gate on (e.g. RELM-1) — fails if a P1 scenario has no test"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: spec-kit-relm/product-specs
+          path: .product-specs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - name: lock file matches vendored contracts and product locks (E2E-4)
+        run: PRODUCT_SPECS=.product-specs npm run check:lock
+      - name: list tests
+        run: npx playwright test --list
+      - name: scenario coverage (QA-2)
+        run: |
+          if [ -n "${{ inputs.gate-feature }}" ]; then
+            npm run -s coverage:scenarios -- --specs .product-specs --feature "${{ inputs.gate-feature }}" --gate
+          else
+            npm run -s coverage:scenarios -- --specs .product-specs | tee -a "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,10 @@
+{
+  "$comment": "Contract versions this suite exercises (QA-3). Expectations select by version/capability, never branch.",
+  "contracts": {
+    "inventory-api": "1.1.0",
+    "orders-api": "1.3.0"
+  },
+  "capabilities": {
+    "checkout.stock-reservation": { "requires": { "inventory-api": ">=1.1.0", "orders-api": ">=1.3.0" } }
+  }
+}
